@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="item in this.$store.state.news">{{ item.title }}</div>
+    <div v-for="item in this.$store.state.ask">{{ item.title }}</div>
   </div>
 </template>
 

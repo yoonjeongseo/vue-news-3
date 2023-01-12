@@ -1,15 +1,16 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { fetchNewsList } from '../api/index.js';
-import { fetchAskList } from '../api/index.js';
-import { fetchJobsList } from '../api/index.js';
+import { fetchNewsList, fetchAskList, fetchJobsList } from '../api/index.js';
+
 
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    news: []
+    news: [],
+    ask: [],
+    jobs: []
   },
   mutations: {
     SET_NEWS(state, news) { //mutations에서 state로 값을 넘기려면 state로 인자를 처음에 받아야한다.
@@ -17,10 +18,10 @@ export const store = new Vuex.Store({
       //state안에 news에 받아온 데이터 news(받아온 데이터이름 짓기)를 넣는다
     },
     SET_ASK(state, ask) {
-      state.news = ask;
+      state.ask = ask;
     },
     SET_JOBS(state, jobs) {
-      state.news = jobs;
+      state.jobs = jobs;
     }
   }, //actions에서 바로 state로 접근이 불가능하기 떄문에 mutations를 이용해서 actions에서 받아온 데이터를 mutations으로 넘긴다.
   actions: { //actions에서 FETCH_NEWS를 호출
@@ -37,19 +38,19 @@ export const store = new Vuex.Store({
           console.log(error);
         })
     },
-    FETCH_ASK(context) {
+    FETCH_ASK({ commit }) {
       fetchAskList()
-        .then(response => {
-          context.commit('SET_ASK', response.data);
+        .then(({ data }) => {
+          commit('SET_ASK', data);
         })
         .catch(error => {
           console.log(error);
         })
     },
-    FETCH_JOBS(context) {
+    FETCH_JOBS({ commit }) {
       fetchJobsList()
-        .then(response => {
-          context.commit('SET_JOBS', response.data);
+        .then(({ data }) => {
+          commit('SET_JOBS', data);
         })
         .catch(error => {
           console.log(error);
