@@ -12,6 +12,11 @@ export const store = new Vuex.Store({
     ask: [],
     jobs: []
   },
+  getters: { //computed와 동일한 속성이지만 store에만 있음
+    fetchedAsk(state) {
+      return state.ask;
+    }
+  },
   mutations: {
     SET_NEWS(state, news) { //mutations에서 state로 값을 넘기려면 state로 인자를 처음에 받아야한다.
       state.news = news;
