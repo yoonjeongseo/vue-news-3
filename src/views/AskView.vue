@@ -1,27 +1,28 @@
 <template>
   <div>
-    <div v-for="item in asks">{{ item.title }}</div>
+    <div v-for="item in this.$store.state.news">{{ item.title }}</div>
   </div>
 </template>
 
 <script>
-import { fetchAskList } from '../api/index.js';
+// import { fetchAskList } from '../api/index.js';
 
 export default {
-  data() {
-    return {
-      asks: []
-    }
-  },
+  // data() {
+  //   return {
+  //     asks: []
+  //   }
+  // },
   created() {
-    var vm = this;
-    fetchAskList()
-      .then(function(response){
-        vm.asks = response.data
-      })
-      .catch(function(error){
-        console.log(error);
-      })
+    this.$store.dispatch('FETCH_ASK');
+    // var vm = this;
+    // fetchAskList()
+    //   .then(function(response){
+    //     vm.asks = response.data
+    //   })
+    //   .catch(function(error){
+    //     console.log(error);
+    //   })
   }
 }
 </script>
