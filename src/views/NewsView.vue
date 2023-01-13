@@ -5,26 +5,10 @@
 </template>
 
 <script>
-// import { fetchNewsList } from '../api/index.js';
 
 export default {
-  // data() {
-  //   return {
-  //     users: []
-  //   }
-  // }, //state에서 데이터를 받아오기 떄문에 필요없음
   created() {
     this.$store.dispatch('FETCH_NEWS');
-
-    // var vm = this;
-    // fetchNewsList()
-    //   .then(function(response) {
-    //     console.log(response);
-    //     vm.users = response.data
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   })
   }
 
 }
