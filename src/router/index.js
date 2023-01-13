@@ -33,11 +33,11 @@ Vue.use(VueRouter);
       component: JobsView,
     },
     {
-      path: '/item',
+      path: '/item/:id',
       component: ItemView,
     },
     {
-      path: '/user',
+      path: '/user/:id', //user에 대한 id를 넘긴다
       component: UserView,
     },
   ]
