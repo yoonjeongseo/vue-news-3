@@ -9,6 +9,8 @@
         {{ item.title }}
       </a> -->
       <router-link v-bind:to="`item/${item.id}`">
+        <!-- item.url로 받아오면 데이터가 다르게 받아져서 값을 맞춰서 가져오기 위해 ${item.id}값을 가져온다 -->
+        
         {{ item.title }}
       </router-link>
       <small>{{ item.time_ago }} by {{ item.user }}</small>
