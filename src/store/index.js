@@ -18,8 +18,12 @@ export const store = new Vuex.Store({
   getters: { //computed와 동일한 속성이지만 store에만 있음
     fetchedAsk(state) {
       return state.ask;
-    }
+    },
+    fetchedItem(state) {
+      return state.item;
+    },
   },
+  
   // mutations: mutations,
   mutations,
   actions, 
