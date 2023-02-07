@@ -7,9 +7,7 @@
       <div>
         {{ userInfo.id }}
       </div>
-      <!-- <router-link :to="`/user/${userInfo.user}`">
-        {{ userInfo.id }}
-      </router-link> -->
+
       <div class="time">
         {{ userInfo.created }}
       </div>
