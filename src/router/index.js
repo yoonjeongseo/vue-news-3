@@ -23,14 +23,17 @@ Vue.use(VueRouter);
       path: '/news',
       //component: url 주소로 갔을 때 표시될 컴포넌트
       component: NewsView,
+      name: "news"
     },
     {
       path: '/ask',
       component: AskView,
+      name: "ask"
     },
     {
       path: '/jobs',
       component: JobsView,
+      name: "jobs"
     },
     {
       path: '/item/:id',
