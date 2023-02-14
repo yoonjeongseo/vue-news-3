@@ -6,7 +6,8 @@ export default {
     fetchNewsList()
       .then(response => {
         context.commit('SET_NEWS', response.data);
-        
+        return response;
+        // 데이터를 받아와서 꺼내주고 return을 통해 화면으로 계속 데이터를 보낸다
       })
       .catch(error => {
         console.log(error);
