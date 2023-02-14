@@ -3,25 +3,15 @@
     <section>
       <!-- 사용자 상세 정보 -->
       <user-profile :info="fetchedItem">
-        <div slot="username">{{ fetchedItem.user }}</div>
+        <!-- <div slot="username">{{ fetchedItem.user }}</div> -->
+        <router-link slot="username" :to="`/user/${fetchedItem.user}`">
+          {{ fetchedItem.user }}
+        </router-link>
         <template slot="time">
-          {{ fetchedItem.time_ago }}
+          {{ 'Posted' + fetchedItem.time_ago }}
         </template>
       </user-profile>
 
-      <!-- <div class="user-container">
-        <div>
-          <i class="fas fa-user"></i>
-        </div>
-        <div class="user-description">
-          <router-link :to="`/user/${fetchedItem.user}`">
-            {{ fetchedItem.user }}
-          </router-link>
-          <div class="time">
-            {{ fetchedItem.time_ago }}
-          </div>
-        </div>
-      </div> -->
     </section>
     <section>
       <h2>{{ fetchedItem.title }}</h2>
@@ -33,18 +23,6 @@
         <!-- {{ fetchedItem.content }} -->
       </div>
     </section>
-    <!-- {{ this.$store.state.item }} -->
-    <!-- 데이터에 대한 모든정보 가져오기 -->
-
-    <!-- <p>{{ this.$store.state.item.title }}</p>
-    <div>
-      {{ this.$store.state.item.content }}
-    </div> -->
-
-    <!-- <p>{{ fetchedItem.title }}</p>
-    <div>
-      {{ fetchedItem.content }}
-    </div> -->
   </div>
 </template>
 
