@@ -7,6 +7,7 @@ import AskView from '../views/AskView.vue';
 import JobsView from '../views/JobsView.vue';
 import ItemView from '../views/ItemView.vue';
 import UserView from '../views/UserView.vue';
+import createListView from '../views/CreateListView.js';
 
 Vue.use(VueRouter);
 
@@ -22,17 +23,20 @@ Vue.use(VueRouter);
       //path: url 주소
       path: '/news',
       //component: url 주소로 갔을 때 표시될 컴포넌트
-      component: NewsView,
-      name: "news"
+      // component: NewsView,
+      name: "news",
+      component: createListView('NewsView'),
     },
     {
       path: '/ask',
-      component: AskView,
+      // component: AskView,
+      component: createListView('AskView'),
       name: "ask"
     },
     {
       path: '/jobs',
-      component: JobsView,
+      // component: JobsView,
+      component: createListView('JobsView'),
       name: "jobs"
     },
     {

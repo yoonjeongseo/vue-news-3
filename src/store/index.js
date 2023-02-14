@@ -13,7 +13,8 @@ export const store = new Vuex.Store({
     ask: [],
     jobs: [],
     user: {},
-    item: {}
+    item: {},
+    list: []
   },
   getters: { //computed와 동일한 속성이지만 store에만 있음
     fetchedAsk(state) {
