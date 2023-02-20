@@ -55,7 +55,7 @@ export default {
     return fetchList(pageName) 
       .then(response => {
         // #4
-        console.log(4);
+        // console.log(4);
         commit('SET_LIST', response.data);
         return response;
       })
