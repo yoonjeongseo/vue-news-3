@@ -27,76 +27,46 @@ Vue.use(VueRouter);
       path: '/news',
       //component: url 주소로 갔을 때 표시될 컴포넌트
       component: NewsView,
-      // component: createListView('NewsView'),
       name: "news",
       beforeEnter: (to, from, next) => {
         bus.$emit('start:spinner');
-        // #1
         store.dispatch('FETCH_LIST', to.name)
           .then(() => {
-            // #5
-            // console.log(5);
-            // console.log('fetched');
-            // bus.$emit('end:spinner');
             next();
           })
           .catch((error) => {
             console.log(error);
           });
-        // console.log('to', to);
-        // console.log('from', from);
-        // console.log(next);
-        // next();
       },
     },
     {
       path: '/ask',
       component: AskView,
-      // component: createListView('AskView'),
       name: "ask",
       beforeEnter: (to, from, next) => {
         bus.$emit('start:spinner');
-        // #1
         store.dispatch('FETCH_LIST', to.name)
           .then(() => {
-            // #5
-            // console.log(5);
-            // console.log('fetched');
-            // bus.$emit('end:spinner');
             next();
           })
           .catch((error) => {
             console.log(error);
           });
-        // console.log('to', to);
-        // console.log('from', from);
-        // console.log(next);
-        // next();
       },
     },
     {
       path: '/jobs',
       component: JobsView,
-      // component: createListView('JobsView'),
       name: "jobs",
       beforeEnter: (to, from, next) => {
         bus.$emit('start:spinner');
-        // #1
         store.dispatch('FETCH_LIST', to.name)
           .then(() => {
-            // #5
-            // console.log(5);
-            // console.log('fetched');
-            // bus.$emit('end:spinner');
             next();
           })
           .catch((error) => {
             console.log(error);
           });
-        // console.log('to', to);
-        // console.log('from', from);
-        // console.log(next);
-        // next();
       },
     },
     {
