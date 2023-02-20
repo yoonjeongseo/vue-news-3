@@ -2,35 +2,70 @@ import { fetchNewsList, fetchAskList, fetchJobsList, fetchUserInfo, fetchComment
 //api 참고하기 때문에 
 
 export default { 
-  FETCH_NEWS(context) { 
-    return fetchNewsList()
-      .then(response => {
-        context.commit('SET_NEWS', response.data);
-        return response;
-        // 데이터를 받아와서 꺼내주고 return을 통해 화면으로 계속 데이터를 보낸다
-      })
-      .catch(error => {
-        console.log(error);
-      })
+  //promise
+  // FETCH_NEWS(context) { 
+  //   return fetchNewsList()
+  //     .then(response => {
+  //       context.commit('SET_NEWS', response.data);
+  //       return response;
+  //       // 데이터를 받아와서 꺼내주고 return을 통해 화면으로 계속 데이터를 보낸다
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     })
+  // },
+
+  //async
+  async FETCH_NEWS(context) { 
+    const response = await fetchNewsList();
+    context.commit('SET_NEWS', response.data);
+    return response;
   },
-  FETCH_ASK({ commit }) {
-    return fetchAskList()
-      .then(({ data }) => {
-        commit('SET_ASK', data);
-      })
-      .catch(error => {
-        console.log(error);
-      })
+
+
+  // FETCH_ASK({ commit }) {
+  //   return fetchAskList()
+  //     .then(({ data }) => {
+  //       commit('SET_ASK', data);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     })
+  // },
+
+  async FETCH_ASK({ commit }) {
+    try {
+      const response =  await fetchAskList();
+      commit('SET_ASK', response.data);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   },
-  FETCH_JOBS({ commit }) {
-    return fetchJobsList()
-      .then(({ data }) => {
-        commit('SET_JOBS', data);
-      })
-      .catch(error => {
-        console.log(error);
-      })
+
+
+  // FETCH_JOBS({ commit }) {
+  //   return fetchJobsList()
+  //     .then(({ data }) => {
+  //       commit('SET_JOBS', data);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     })
+  // },
+
+
+  async FETCH_JOBS({ commit }) {
+    try {
+      const response = await fetchJobsList();
+      commit('SET_JOBS', response.data);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   },
+
+
   FETCH_USER({ commit },  name) {
     return fetchUserInfo(name)
       .then(({ data }) => {
