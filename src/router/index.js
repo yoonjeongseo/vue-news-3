@@ -36,8 +36,8 @@ Vue.use(VueRouter);
           .then(() => {
             // #5
             // console.log(5);
-            console.log('fetched');
-            bus.$emit('end:spinner');
+            // console.log('fetched');
+            // bus.$emit('end:spinner');
             next();
           })
           .catch((error) => {
@@ -53,13 +53,51 @@ Vue.use(VueRouter);
       path: '/ask',
       component: AskView,
       // component: createListView('AskView'),
-      name: "ask"
+      name: "ask",
+      beforeEnter: (to, from, next) => {
+        bus.$emit('start:spinner');
+        // #1
+        store.dispatch('FETCH_LIST', to.name)
+          .then(() => {
+            // #5
+            // console.log(5);
+            // console.log('fetched');
+            // bus.$emit('end:spinner');
+            next();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        // console.log('to', to);
+        // console.log('from', from);
+        // console.log(next);
+        // next();
+      },
     },
     {
       path: '/jobs',
       component: JobsView,
       // component: createListView('JobsView'),
-      name: "jobs"
+      name: "jobs",
+      beforeEnter: (to, from, next) => {
+        bus.$emit('start:spinner');
+        // #1
+        store.dispatch('FETCH_LIST', to.name)
+          .then(() => {
+            // #5
+            // console.log(5);
+            // console.log('fetched');
+            // bus.$emit('end:spinner');
+            next();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        // console.log('to', to);
+        // console.log('from', from);
+        // console.log(next);
+        // next();
+      },
     },
     {
       path: '/item/:id',
