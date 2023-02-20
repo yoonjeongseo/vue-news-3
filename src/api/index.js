@@ -7,18 +7,36 @@ const config = {
 }
 
 //2. API 함수들을 정리
-function fetchNewsList() {
+async function fetchNewsList() {
   // return axios.get(config.baseUrl + 'news/1.json');
-  return axios.get(`${config.baseUrl}news/1.json`);
+  try {
+    return await axios.get(`${config.baseUrl}news/1.json`);
+  } catch (error) {
+    console.log(error);
+  }
 }
 function fetchJobsList() {
-  return axios.get(`${config.baseUrl}jobs/1.json`);
+  try {
+    return axios.get(`${config.baseUrl}jobs/1.json`);
+  } catch (error) {
+    console.log(error);
+  }
 }
-function fetchAskList() {
-  return axios.get(`${config.baseUrl}ask/1.json`);
+async function fetchAskList() {
+  try {
+    const response = await axios.get(`${config.baseUrl}ask/1.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 }
-function fetchList(pageName) {
-  return axios.get(`${config.baseUrl}${pageName}/1.json`);
+async function fetchList(pageName) {
+  try {
+    const response = await axios.get(`${config.baseUrl}${pageName}/1.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 
